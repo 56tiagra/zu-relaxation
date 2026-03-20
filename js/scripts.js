@@ -75,13 +75,33 @@ document.addEventListener('DOMContentLoaded', function() {
         mirror: false,
     });
 
-    // Mobile menu toggle (if needed)
-    const menuBtn = document.querySelector('nav button');
-    const mobileMenu = document.querySelector('.hidden.md\\:flex'); // Just as a target
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = (show) => {
+        if (show) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+        }
+    };
+
     if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            console.log('Menu clicked');
-            // This is just a placeholder logic. Usually, a menu overlay would toggle.
-        });
+        menuBtn.addEventListener('click', () => toggleMenu(true));
     }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+    }
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
 });

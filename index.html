@@ -23,9 +23,20 @@
 <a class="text-[#403013]/60 dark:text-[#fff8f3]/60 hover:text-[#566257] transition-colors" href="#location">Location</a>
 <a class="text-[#566257] dark:text-[#d9e6d8] hover:opacity-80 transition-all duration-300 active:scale-95 duration-200" href="tel:0395616188">Call (03) 9561 6188</a>
 </div>
-<button class="md:hidden p-2 text-primary">
+<button id="menu-toggle" class="md:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
 <span class="material-symbols-outlined">menu</span>
 </button>
+</div>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#fff8f3] dark:bg-stone-900 opacity-0 pointer-events-none transition-opacity duration-300 h-screen overflow-y-auto">
+    <div class="flex flex-col items-center justify-center h-full gap-8 px-8">
+        <button id="menu-close" class="absolute top-6 right-8 p-2 text-primary">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <a class="font-headline text-3xl text-[#403013] dark:text-[#fff8f3] hover:text-[#566257] transition-colors" href="#services">Services</a>
+        <a class="font-headline text-3xl text-[#403013] dark:text-[#fff8f3] hover:text-[#566257] transition-colors" href="#location">Location</a>
+        <a class="bg-primary text-on-primary px-10 py-5 rounded-full font-label font-semibold tracking-wide editorial-shadow" href="tel:0395616188">Call (03) 9561 6188</a>
+    </div>
 </div>
 </nav>
 <!-- Hero Section -->
@@ -306,12 +317,6 @@
 <span class="font-bold text-on-surface uppercase text-xs tracking-[0.2em] mb-2">Explore</span>
 <a class="text-[#403013]/70 dark:text-[#fff8f3]/70 hover:text-[#7b5649] transition-colors" href="#">Services</a>
 <a class="text-[#403013]/70 dark:text-[#fff8f3]/70 hover:text-[#7b5649] transition-colors" href="#">Location</a>
-</div>
-<div class="flex flex-col gap-4 font-body text-sm tracking-wide text-[#566257] dark:text-[#d9e6d8]">
-<span class="font-bold text-on-surface uppercase text-xs tracking-[0.2em] mb-2">Legal</span>
-<a class="text-[#403013]/70 dark:text-[#fff8f3]/70 hover:text-[#7b5649] transition-colors" href="#">Privacy Policy</a>
-<a class="text-[#403013]/70 dark:text-[#fff8f3]/70 hover:text-[#7b5649] transition-colors" href="#">Terms of Service</a>
-<a class="text-[#403013]/70 dark:text-[#fff8f3]/70 hover:text-[#7b5649] transition-colors" href="#">Contact Us</a>
 </div>
 </div>
 </div>
