@@ -1,3 +1,10 @@
+// Feature Flags & Configuration
+const CONFIG = {
+    showPromoPopup: true, // Set to false to disable the promotional popup
+    promoImage: "assets/easter_2026.png",
+    promoLink: "#", // Optional link when clicking the image
+};
+
 // Tailwind Configuration
 tailwind.config = {
     darkMode: "class",
@@ -104,4 +111,45 @@ document.addEventListener('DOMContentLoaded', function() {
     menuLinks.forEach(link => {
         link.addEventListener('click', () => toggleMenu(false));
     });
+
+    // Promotion Popup Logic
+    const initPromoPopup = () => {
+        if (!CONFIG.showPromoPopup) return;
+
+        // Check if already shown in this session
+        if (sessionStorage.getItem('promoDismissed')) return;
+
+        const modal = document.getElementById('promo-modal');
+        if (!modal) return;
+
+        const closeBtn = document.getElementById('promo-close');
+        const modalOverlay = modal.querySelector('.modal-overlay');
+
+        // Show after a short delay for better impact
+        setTimeout(() => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }, 1000);
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'opacity-0');
+                document.body.style.overflow = '';
+                sessionStorage.setItem('promoDismissed', 'true');
+            }, 3000); // Allow fade out animation
+            // Actually, I'll use a faster close
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('promoDismissed', 'true');
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+    };
+
+    initPromoPopup();
 });
