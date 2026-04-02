@@ -1,6 +1,6 @@
 // Feature Flags & Configuration
 const CONFIG = {
-    showPromoPopup: true, // Set to false to disable the promotional popup
+    showPromoPopup: false, // Set to false to disable the promotional popup
     promoImage: "assets/easter_2026.png",
     promoLink: "#", // Optional link when clicking the image
 };
