@@ -1,7 +1,7 @@
 // Feature Flags & Configuration
 const CONFIG = {
-    showPromoPopup: false, // Set to false to disable the promotional popup
-    promoImage: "assets/easter_2026.png",
+    showPromoPopup: true, // Set to false to disable the promotional popup
+    promoImage: "assets/promo-foot.png",
     promoLink: "#", // Optional link when clicking the image
 };
 
@@ -68,13 +68,13 @@ tailwind.config = {
                 "body": ["Manrope"],
                 "label": ["Manrope"]
             },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
         },
     },
 };
 
 // AOS Initialization
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
         duration: 1200,
         easing: 'ease-in-out-cubic',
